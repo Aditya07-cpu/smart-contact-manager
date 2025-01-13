@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="/normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Dashboard</title>
+</head>
+<body>
+<section>
+    <div class="card mr-3 ml-3">
+
+        <div class="card-body">
+
+            <div class="container">
+
+                <div class="container text-center">
+                    <img style="width: 250px; height: 250px;" class="profile_picture" th:src="@{'/img/' + ${user.imageUrl}}" src="" alt="profile photo">
+                </div>
+
+                <h1 class="text-center" th:text="${user.name}"></h1>
+
+                <table class="table mt-3">
+                    <thead>
+                    <tr>
+                        <th scope="col">#USERID</th>
+                        <th scope="col">SCMUSER<span th:text="${user.id}"></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td><span th:text="${user.email}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Role</th>
+                        <td><span th:text="${user.role}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Account Active</th>
+                        <td><span th:text="${user.enabled}"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">About</th>
+                        <td><span th:text="${user.about}"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
